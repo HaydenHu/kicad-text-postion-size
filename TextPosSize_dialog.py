@@ -118,7 +118,7 @@ class TextPosSizeDialog(TextPosSize_gui):
 
     def onProcessAction(self, event):
         self.process_text(self.text_type)
-        # return self.EndModal(wx.ID_OK)
+        # self.clear_fields()
 
     def onCloseWindow(self, event):
         return self.EndModal(wx.ID_CANCEL)
@@ -147,7 +147,7 @@ class TextPosSizeDialog(TextPosSize_gui):
                 if not footprint.IsSelected():
                     continue
             if self.ref_hide_check:
-                self.clear_fields(footprint)
+                # self.clear_fields(footprint)
                 if  text_type&1:
                     reference.SetVisible(False)
                 else:
@@ -249,13 +249,16 @@ class TextPosSizeDialog(TextPosSize_gui):
         item.SetTextSize(pcbnew.VECTOR2I(pcbnew.FromMM(width),pcbnew.FromMM(height)))
         item.SetTextThickness(pcbnew.FromMM(thickness)) 
 
-    def clear_fields(self,footprint):
+    def clear_fields(self):
         # footprint.GetField("Reference").SetVisible(True)
         # fields=footprint.RemoveField("Field6")
-        fields=footprint.Fields()
-        for index, field in fields:
-            if index>=5:
-                field.SetVisible(False)
+        for footprint in pcbnew.GetBoard().GetFootprints():
+            if footprint.IsSelected():
+                fields=footprint.GetFields()
+                for index, field in enumerate(fields):
+                    print(field.GetName())
+                    # if index>=5:
+                    #     field.SetVisible(False)
 
 
         
