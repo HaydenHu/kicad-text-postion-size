@@ -1,0 +1,35 @@
+{
+    "$schema": "https://go.kicad.org/pcm/schemas/v1",
+    "name": "TextPostionSize",
+    "description": "Set properties such as text size and position in batches.",
+    "description_full": "Additions and enhancements to KICAD's built-in text editor.",
+    "identifier": "com.github.haydenhu.kicad-text-postion-size",
+    "type": "plugin",
+    "author": {
+        "name": "Hayden Hu",
+        "contact": {
+            "web": "https://github.com/HaydenHu/kicad-text-postion-size"
+        }
+    },
+    "maintainer": {
+        "name": "Hayden Hu",
+        "contact": {
+            "web": "https://github.com/HaydenHu/kicad-text-postion-size"
+        }
+    },
+    "license": "GPL-3.0",
+    "resources": {
+        "homepage": "https://github.com/HaydenHu/kicad-text-postion-size"
+    },
+    "versions": [
+        {
+            "version": "1.0",
+            "status": "stable",
+            "kicad_version": "9.0",
+            "download_sha256": "YOUR_SHA256_HERE",
+            "download_size": 43.2,
+            "download_url": "https://github.com/HaydenHu/kicad-text-postion-size/archive/refs/heads/main.zip",
+            "install_size": 52.0
+        }
+    ]
+}
