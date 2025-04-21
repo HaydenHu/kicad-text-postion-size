@@ -17,7 +17,7 @@ import os
 class TextPosSize_gui ( wx.Dialog ):
 
     def __init__( self, parent ):
-        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"SetTextPositionSize", pos = wx.DefaultPosition, size = wx.Size( 400,680 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.DEFAULT_DIALOG_STYLE|wx.RESIZE_BORDER )
+        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"SetTextPositionSize", pos = wx.DefaultPosition, size = wx.Size( 410,700 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.DEFAULT_DIALOG_STYLE|wx.RESIZE_BORDER )
 
         #self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
         import sys
