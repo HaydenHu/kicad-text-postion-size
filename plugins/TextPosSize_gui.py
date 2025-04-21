@@ -17,7 +17,7 @@ import os
 class TextPosSize_gui ( wx.Dialog ):
 
     def __init__( self, parent ):
-        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"SetTextPositionSize", pos = wx.DefaultPosition, size = wx.Size( 400,640 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.DEFAULT_DIALOG_STYLE|wx.RESIZE_BORDER )
+        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"SetTextPositionSize", pos = wx.DefaultPosition, size = wx.Size( 400,680 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.DEFAULT_DIALOG_STYLE|wx.RESIZE_BORDER )
 
         #self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
         import sys
@@ -107,6 +107,16 @@ class TextPosSize_gui ( wx.Dialog ):
 
         wht_x3_box.Add( other_value_box, 1, wx.ALL, 5 )
 
+        #Add Presets Box
+        preset_box = wx.BoxSizer(wx.HORIZONTAL)
+        self.preset_label = wx.StaticText(self, wx.ID_ANY, "Presets:")
+        preset_box.Add(self.preset_label, 0, wx.ALL, 5)
+        
+        self.preset_combobox = wx.ComboBox(self, wx.ID_ANY, choices=[], style=wx.CB_READONLY)
+        preset_box.Add(self.preset_combobox, 1, wx.EXPAND | wx.ALL, 5)
+        
+        amain.Add(preset_box, 0, wx.EXPAND, 5)
+
 
         amain.Add( txt_type_box, 0, wx.ALIGN_RIGHT, 5 ) 
         amain.Add( size_box, 0, wx.EXPAND, 5 )
@@ -194,16 +204,30 @@ class TextPosSize_gui ( wx.Dialog ):
 
         box3 = wx.BoxSizer( wx.HORIZONTAL )
 
-        
+        # Add button to sequentially
+        self.but_process_sequentially = wx.Button(self, wx.ID_ANY, u"Process Sequentially", wx.DefaultPosition, wx.DefaultSize, 0)
+        box3.Add(self.but_process_sequentially, 0, wx.ALL, 5)
+
+        # Add button to next component
+        self.but_next_component = wx.Button(self, wx.ID_ANY, u"Next Component", wx.DefaultPosition, wx.DefaultSize, 0)
+        box3.Add(self.but_next_component, 0, wx.ALL, 5)
+        # Add button to Manage presets
+        self.but_manage_presets = wx.Button(self, wx.ID_ANY, u"Manage Presets", wx.DefaultPosition, wx.DefaultSize, 0)
+        box3.Add(self.but_manage_presets, 0, wx.ALL, 5)
+
+        amain.Add(box3, 0, wx.ALIGN_LEFT, 5)
+
+        box4 = wx.BoxSizer( wx.HORIZONTAL )
+
+
         self.but_cancel = wx.Button( self, wx.ID_ANY, u"Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
-        box3.Add( self.but_cancel, 0, wx.ALL, 5 )
+        box4.Add( self.but_cancel, 0, wx.ALL, 5 )
 
         self.but_ok = wx.Button( self, wx.ID_ANY, u"Ok", wx.DefaultPosition, wx.DefaultSize, 0 )
-        box3.Add( self.but_ok, 0, wx.ALL, 5 )
+        box4.Add( self.but_ok, 0, wx.ALL, 5 )
 
+        amain.Add(box4, 0, wx.ALIGN_CENTER, 5)
 
-        amain.Add( box3, 0, wx.ALIGN_RIGHT, 5 )
-        
 
         self.SetSizer( amain )
         self.Layout()
